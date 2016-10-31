@@ -7,17 +7,23 @@ import com.bulrog.robot.impl.AnimationImpl;
 import com.bulrog.robot.impl.SpriteImpl;
 
 public class SpeakStep extends AnimationStep {
-    private Animation speak;
+    private final Animation speak;
+    private RobotFace robotFace;
 
     public SpeakStep(RobotFace robotFace, int timeOfStepInMs) throws Exception {
         super(timeOfStepInMs);
         speak=new AnimationImpl(new SpriteImpl("MouthSpeak.png",900,400)
-                ,500,robotFace.getMouth());
+                ,300,robotFace.getMouth());
+        this.robotFace=robotFace;
 
     }
 
     @Override
     public void updateAnimation() {
         speak.update();
+        if (robotFace!=null){
+            robotFace.setEyeBrows(0.1f);
+            robotFace=null;
+        }
     }
 }

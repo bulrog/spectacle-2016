@@ -1,10 +1,7 @@
 package com.bulrog.robot;
 
 
-import com.bulrog.robot.steps.AnimationStep;
-import com.bulrog.robot.steps.AnimationStepBuilder;
-import com.bulrog.robot.steps.SpeakStep;
-import com.bulrog.robot.steps.StandStep;
+import com.bulrog.robot.steps.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -29,8 +26,11 @@ public class RobotAnimation {
 
     private static void setAnimation(RobotFace robotFace) throws Exception{
         animationStep=new AnimationStepBuilder()
-                .add(new SpeakStep(robotFace,5000))
-                .add(new StandStep(robotFace,3000))
+                .add(new SpeakStep(robotFace,3000))
+                .add(new StandStep(robotFace,2000))
+                .add(new SurpriseStep(robotFace,2000))
+                .add(new StandStep(robotFace,2000))
+                .add(new SpeakStep(robotFace,3000))
                 .build();
 
     }

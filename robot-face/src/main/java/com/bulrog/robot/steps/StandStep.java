@@ -4,22 +4,19 @@ package com.bulrog.robot.steps;
 import com.bulrog.robot.RobotFace;
 import com.bulrog.robot.impl.SpriteImpl;
 
-import javax.swing.*;
-
 public class StandStep extends AnimationStep{
-    JLabel mouth;
+    RobotFace robotFace;
     public StandStep(RobotFace robotFace,int timeOfStepInMs) throws Exception{
         super(timeOfStepInMs);
-        mouth=robotFace.getMouth();
-
+        this.robotFace=robotFace;
     }
 
     @Override
     public void updateAnimation() throws Exception{
-        if (mouth!=null){
-
-            mouth.setIcon(new SpriteImpl("Mouth.png",900,400).getFrame(0));
-            mouth=null;
+        if (robotFace!=null){
+            robotFace.getMouth().setIcon(new SpriteImpl("Mouth.png",900,400).getFrame(0));
+            robotFace.setEyeBrows(0.1f);
+            robotFace=null;
         }
 
     }
