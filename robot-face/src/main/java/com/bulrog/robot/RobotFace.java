@@ -1,6 +1,8 @@
 package com.bulrog.robot;
 
 
+import com.bulrog.robot.impl.SpriteImpl;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
@@ -8,12 +10,13 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 
 public class RobotFace {
-    private final JLabel leftEye;
-    private final JLabel rightEye;
-    private final JLabel mouth;
-    private final JLabel nose;
-    private final JLabel leftEyeBrow;
-    private final JLabel rightEyeBrow;
+    private JLabel leftEye;
+    private JLabel rightEye;
+    private JLabel mouth;
+    private JLabel nose;
+    private JLabel leftEyeBrow;
+    private JLabel rightEyeBrow;
+    private final JPanel contentPanel;
     final static Dimension screenSize=Toolkit.getDefaultToolkit().getScreenSize();
 
     private static JLabel getImage(String fileName, float xPercent, float yPercent) throws Exception{
@@ -33,7 +36,15 @@ public class RobotFace {
         rightEyeBrow.setLocation((int) (screenSize.getWidth() * 0.6f),yPos);
 
     }
+    public void init() throws Exception{
+        leftEye.setIcon(new SpriteImpl("LeftEye.png",300,300).getFrame(0));
+        rightEye.setIcon(new SpriteImpl("RightEye.png",300,300).getFrame(0));
+        mouth.setIcon(new SpriteImpl("Mouth.png",900,400).getFrame(0));
+        setEyeBrows(0.1f);
+    }
+
     public RobotFace(JPanel contentPanel) throws Exception{
+        this.contentPanel=contentPanel;
         leftEye=getImage("LeftEye.png",0.2f,0.20f);
         leftEyeBrow=getImage("eyebrow.png",0.2f,0.1f);
         rightEye=getImage("RightEye.png",0.6f,0.20f);
@@ -46,7 +57,6 @@ public class RobotFace {
         contentPanel.add(nose);
         contentPanel.add(leftEyeBrow);
         contentPanel.add(rightEyeBrow);
-
 
     }
 

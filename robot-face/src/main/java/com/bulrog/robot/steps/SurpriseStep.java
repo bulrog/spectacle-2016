@@ -16,9 +16,11 @@ public class SurpriseStep extends AnimationStep {
     @Override
     public void updateAnimation() throws Exception {
         if (robotFace!=null){
+            robotFace.init();
             robotFace.setEyeBrows(0.0f);
             robotFace.getMouth().setIcon(new SpriteImpl("MouthSurprise.png",900,400).getFrame(0));
+            robotFace=null;
         }
-        robotFace=null;
+
     }
 }

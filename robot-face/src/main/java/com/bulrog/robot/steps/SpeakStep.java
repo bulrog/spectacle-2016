@@ -19,10 +19,10 @@ public class SpeakStep extends AnimationStep {
     }
 
     @Override
-    public void updateAnimation() {
+    public void updateAnimation() throws Exception{
         speak.update();
         if (robotFace!=null){
-            robotFace.setEyeBrows(0.1f);
+            robotFace.init();
             robotFace=null;
         }
     }

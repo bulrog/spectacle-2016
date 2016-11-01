@@ -27,6 +27,7 @@ public class RobotAnimation {
     private static void setAnimation(RobotFace robotFace) throws Exception{
         animationStep=new AnimationStepBuilder()
                 .add(new SpeakStep(robotFace,3000))
+                .add(new SleepStep(robotFace,3000))
                 .add(new StandStep(robotFace,2000))
                 .add(new SurpriseStep(robotFace,2000))
                 .add(new StandStep(robotFace,2000))
