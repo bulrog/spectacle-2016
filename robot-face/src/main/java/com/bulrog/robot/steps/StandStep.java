@@ -15,7 +15,7 @@ public class StandStep extends AnimationStep{
     public void updateAnimation() throws Exception{
         if (robotFace!=null){
             robotFace.init();
-            robotFace.getMouth().setIcon(new SpriteImpl("Mouth.png",900,400).getFrame(0));
+            robotFace.getMouth().setIcon(new SpriteImpl("MouthSpeak.png",900,400).getFrame(0));
             robotFace=null;
         }
 

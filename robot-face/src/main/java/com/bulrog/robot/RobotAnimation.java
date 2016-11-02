@@ -12,7 +12,7 @@ public class RobotAnimation {
     private static AnimationStep animationStep;
     private static ActionListener MAIN_LOOP=e-> {
         try {
-
+            System.out.println("event:"+e);
             animationStep=animationStep.update();
             if (animationStep==null){
                 System.exit(0);
@@ -26,17 +26,19 @@ public class RobotAnimation {
 
     private static void setAnimation(RobotFace robotFace) throws Exception{
         animationStep=new AnimationStepBuilder()
-                .add(new SpeakStep(robotFace,3000))
-                .add(new SleepStep(robotFace,3000))
+                .add(new SleepStep(robotFace,10000))
+//                .add(new SurpriseStep(robotFace,66000))
+/*
                 .add(new StandStep(robotFace,2000))
                 .add(new SurpriseStep(robotFace,2000))
                 .add(new StandStep(robotFace,2000))
                 .add(new SpeakStep(robotFace,3000))
+*/
                 .build();
 
     }
 
-    private static Timer ANIMATION=new Timer(100,MAIN_LOOP);
+    private static Timer ANIMATION=new Timer(10,MAIN_LOOP);
 
     public static void main(String[] args) throws Exception{
         SwingUtilities.invokeLater(new Runnable() {

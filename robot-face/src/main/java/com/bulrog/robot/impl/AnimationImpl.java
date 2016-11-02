@@ -27,7 +27,7 @@ public class AnimationImpl implements Animation{
     @Override
     public void update() {
         if (timeForNextFrame.isBeforeNow()){
-            timeForNextFrame=new DateTime().plus(speedInMs);
+            timeForNextFrame=timeForNextFrame.plus(speedInMs);
             label.setIcon(sprite.getFrame(index++));
         }
     }
